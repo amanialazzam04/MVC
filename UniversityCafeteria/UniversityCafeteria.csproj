@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="C:\Users\user\Desktop\MVC%281%29.cshtml" Link="MVC%281%29.cshtml" />
+  </ItemGroup>
+
 </Project>
