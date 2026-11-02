@@ -1,11 +1,30 @@
-﻿@{
+﻿
+@{
+    Layout = "_SimpleLayout";
     ViewData["Title"] = "Suppliers";
+
+    string[] suppliers =
+    {
+        "Fresh Food Company",
+        "Happy Drinks Company",
+        "Daily Supplies Company"
+    };
 }
 
 <h1>Our Suppliers</h1>
 
 <ul>
-    <li>Fresh Food Company</li>
-    <li>Al Noor Supplies</li>
-    <li>Jordan Dairy Company</li>
+    @foreach (string supplier in suppliers)
+    {
+        <li>@supplier</li>
+    }
 </ul>
+
+@if (suppliers.Length >= 3)
+{
+    <p>We have enough suppliers.</p>
+}
+else
+{
+    <p>We need more suppliers.</p>
+}

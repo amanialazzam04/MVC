@@ -1,13 +1,51 @@
-﻿@{
+﻿
+@section Styles {
+    <link rel="stylesheet" href="~/css/products.css" />
+}
+
+
+@{
     ViewData["Title"] = "Products";
+
+    string[] products =
+    {
+        "Water",
+        "Orange Juice",
+        "Coffee",
+        "Sandwich",
+        "Chocolate"
+    };
 }
 
 <h1>Cafeteria Products</h1>
 
 <ul>
-    <li>Milk</li>
-    <li>Bread</li>
-    <li>Juice</li>
-    <li>Cheese</li>
-    <li>Water</li>
+    @foreach (string product in products)
+    {
+        <li>@product</li>
+    }
 </ul>
+
+@if (products.Length > 0)
+{
+    <p>We have products.</p>
+}
+else
+{
+    <p>No products found.</p>
+}
+
+@if (products.Length >= 3)
+{
+    <p>We have enough Products.</p>
+}
+else
+{
+    <p>We need more Products.</p>
+}
+
+@section Scripts {
+    <script>
+        alert("Welcome to the Products Page!");
+    </script>
+}

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Include="C:\Users\user\Desktop\MVC%281%29.cshtml" Link="MVC%281%29.cshtml" />
+    <Content Include="C:\Users\user\Desktop\MVC%282%29.cshtml" Link="MVC%282%29.cshtml" />
   </ItemGroup>
 
 </Project>
