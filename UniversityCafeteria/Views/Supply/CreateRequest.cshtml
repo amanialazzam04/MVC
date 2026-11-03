@@ -1,0 +1,33 @@
+﻿<h1>Create Supply Request</h1>
+
+<form action="/Supply/SubmitRequest" method="post">
+
+    <div class="mb-3">
+        <label>Employee Name</label>
+        <input type="text" name="employeeName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Product Name</label>
+        <select name="productName" class="form-control">
+            <option>Water</option>
+            <option>Orange Juice</option>
+            <option>Coffee</option>
+            <option>Sandwich</option>
+            <option>Chocolate</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Quantity</label>
+        <input type="number" name="quantity" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Required Date</label>
+        <input type="date" name="requiredDate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+
+</form>

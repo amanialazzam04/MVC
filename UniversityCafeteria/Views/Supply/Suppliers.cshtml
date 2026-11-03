@@ -1,0 +1,10 @@
+﻿<h1>@ViewBag.Title</h1>
+
+<p>Number of Suppliers: @ViewBag.SupplierCount</p>
+
+<ul>
+    @foreach (var supplier in ViewBag.Suppliers)
+    {
+        <li>@supplier</li>
+    }
+</ul>
