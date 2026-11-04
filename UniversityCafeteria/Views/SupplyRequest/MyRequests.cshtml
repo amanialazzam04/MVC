@@ -1,0 +1,45 @@
+﻿@model List<UniversityCafeteria.Models.SupplyRequest>
+
+<h1>My Confirmed Requests</h1>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>You have no confirmed requests yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Product Count</th>
+                <th>Subtotal</th>
+                <th>Preparation Fee</th>
+                <th>Discount</th>
+                <th>Final Total</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var request in Model)
+            {
+                <tr>
+                    <td>@request.RequestId</td>
+                    <td>@request.Items.Count</td>
+                    <td>@request.Subtotal JD</td>
+                    <td>@request.PreparationFee JD</td>
+                    <td>@request.Discount JD</td>
+                    <td>@request.FinalTotal JD</td>
+                    <td>@request.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<br />
+
+<a href="@Url.Action("Index", "SupplyRequest")" class="btn btn-primary">
+    Create New Request
+</a>

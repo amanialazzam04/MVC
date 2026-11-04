@@ -1,0 +1,64 @@
+﻿@model List<UniversityCafeteria.Models.SupplyItem>
+
+<h1>Review Supply Request</h1>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No items added yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+                <th>Priority</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Category</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice JD</td>
+                    <td>@item.TotalPrice JD</td>
+                    <td>@item.Priority</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <hr />
+
+    <h3>Request Summary</h3>
+
+    <p><strong>Subtotal:</strong> @ViewBag.Subtotal JD</p>
+    <p><strong>Preparation Fee:</strong> @ViewBag.PreparationFee JD</p>
+    <p><strong>Discount:</strong> @ViewBag.Discount JD</p>
+
+    <h4><strong>Final Total:</strong> @ViewBag.FinalTotal JD</h4>
+
+    <form action="/SupplyRequest/ConfirmRequest" method="post">
+        <button type="submit" class="btn btn-success">
+            Confirm Request
+        </button>
+    </form>
+    <form action="/SupplyRequest/ClearDraft" method="post">
+        <button type="submit" class="btn btn-danger">
+            Clear Draft
+        </button>
+    </form>
+}
+
+<br />
+
+<a href="/SupplyRequest/Index" class="btn btn-primary">
+    Add More Items
+</a>
