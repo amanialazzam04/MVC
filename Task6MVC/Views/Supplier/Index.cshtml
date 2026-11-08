@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Task6MVC.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Suppliers";
+}
+
+<div class="container mt-4">
+    <h2>Suppliers</h2>
+
+    <a asp-controller="Supplier"
+       asp-action="Create"
+       class="btn btn-primary mb-3">
+        Add New Supplier
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var supplier in Model)
+            {
+                <tr>
+                    <td>@supplier.Id</td>
+                    <td>@supplier.Name</td>
+                    <td>@supplier.Phone</td>
+                    <td>@supplier.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

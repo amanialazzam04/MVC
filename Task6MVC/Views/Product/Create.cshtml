@@ -1,0 +1,76 @@
+﻿@model Task6MVC.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container mt-4">
+    <h2>Add New Product</h2>
+
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Price, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Price, new
+            {
+                @class = "form-control",
+                type = "number",
+                step = "0.01",
+                min = "0"
+            })
+            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Quantity, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Quantity, new
+            {
+                @class = "form-control",
+                type = "number",
+                min = "0"
+            })
+            @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.CategoryId, "Category", new { @class = "form-label" })
+            @Html.DropDownListFor(
+                m => m.CategoryId,
+                (SelectList)ViewBag.Categories,
+                "-- Select Category --",
+                new { @class = "form-select" }
+            )
+            @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.SupplierId, "Supplier", new { @class = "form-label" })
+            @Html.DropDownListFor(
+                m => m.SupplierId,
+                (SelectList)ViewBag.Suppliers,
+                "-- Select Supplier --",
+                new { @class = "form-select" }
+            )
+            @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Save Product
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
+        </a>
+    }
+</div>
+

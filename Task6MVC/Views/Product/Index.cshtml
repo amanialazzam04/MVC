@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Task6MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="container mt-4">
+    <h2>Products</h2>
+
+    <a asp-controller="Product"
+       asp-action="Create"
+       class="btn btn-primary mb-3">
+        Add New Product
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Supplier</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Quantity</td>
+                    <td>@product.Category?.Name</td>
+                    <td>@product.Supplier?.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

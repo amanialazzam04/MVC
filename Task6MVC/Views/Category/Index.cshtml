@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Task6MVC.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="container mt-4">
+    <h2>Categories</h2>
+
+    <a asp-controller="Category"
+       asp-action="Create"
+       class="btn btn-primary mb-3">
+        Add New Category
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

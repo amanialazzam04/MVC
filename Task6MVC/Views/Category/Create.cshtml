@@ -1,0 +1,47 @@
+﻿@model Task6MVC.Models.Category
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<div class="container mt-4">
+    <h2>Add New Category</h2>
+
+    @using (Html.BeginForm("Create", "Category", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+
+            @Html.TextBoxFor(m => m.Name, new
+            {
+                @class = "form-control",
+                placeholder = "Enter category name"
+            })
+
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Description, new { @class = "form-label" })
+
+            @Html.TextAreaFor(m => m.Description, new
+            {
+                @class = "form-control",
+                rows = "3",
+                placeholder = "Enter description"
+            })
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Save Category
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
+        </a>
+    }
+</div>
