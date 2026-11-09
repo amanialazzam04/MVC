@@ -1,0 +1,30 @@
+﻿
+@model Task6MVC.Models.Employee
+
+<h1>Create Employee</h1>
+
+<form asp-action="Create" method="post">
+
+    <label asp-for="FullName"></label>
+    <input asp-for="FullName" class="form-control" />
+
+    <label asp-for="Phone"></label>
+    <input asp-for="Phone" class="form-control" />
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" class="form-control" />
+
+    <label asp-for="Position"></label>
+    <input asp-for="Position" class="form-control" />
+
+    <label asp-for="Salary"></label>
+    <input asp-for="Salary" class="form-control" />
+
+    <label asp-for="HireDate"></label>
+    <input asp-for="HireDate" type="date" class="form-control" />
+
+    <button type="submit" class="btn btn-primary mt-3">Create</button>
+
+</form>
+
+<a asp-action="Index">Back to List</a>

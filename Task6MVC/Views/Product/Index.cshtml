@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Task6MVC.Models.Product>
+﻿
+@model IEnumerable<Task6MVC.Models.Product>
 
 @{
     ViewData["Title"] = "Products";
@@ -22,6 +23,7 @@
                 <th>Quantity</th>
                 <th>Category</th>
                 <th>Supplier</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
@@ -32,12 +34,48 @@
                     <td>@product.Id</td>
                     <td>@product.Name</td>
                     <td>@product.Price</td>
-                    <td>@product.Quantity</td>
+
+                    <td>
+                        @product.Quantity
+
+                        @if (product.Quantity < 5)
+                        {
+                            <span class="badge bg-danger">
+                                Low Stock
+                            </span>
+                        }
+                    </td>
+
                     <td>@product.Category?.Name</td>
                     <td>@product.Supplier?.Name</td>
+
+                    <td>
+                        <a asp-action="Edit"
+                           asp-route-id="@product.Id"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-action="Details"
+                           asp-route-id="@product.Id"
+                           class="btn btn-info btn-sm">
+                            Details
+                        </a>
+
+                        <form asp-action="Delete"
+                              asp-route-id="@product.Id"
+                              method="post"
+                              style="display:inline;"
+                              onsubmit="return confirm('Are you sure you want to delete this product?');">
+
+                            <button type="submit"
+                                    class="btn btn-danger btn-sm">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-

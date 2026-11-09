@@ -18,6 +18,10 @@ namespace Task6MVC.Data
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -28,4 +32,3 @@ namespace Task6MVC.Data
         }
     }
 }
-
